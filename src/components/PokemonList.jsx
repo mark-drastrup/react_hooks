@@ -6,17 +6,16 @@ const PokemonList = () => {
   useEffect(() => {
     fetch("https://pokeapi.co/api/v2/pokemon")
       .then(data => data.json())
-      .then(pokemon =>
-        pokemon.results.forEach((monster, index) =>
-          setPokemons([...pokemons, <li key={index}>{monster.name}</li>])
-        )
-      );
+      .then(pokemon => setPokemons([...pokemon.results]));
   });
 
   return (
     <div>
       <p>This is your pokemon</p>
-      <ul>{pokemons}</ul>
+      <ul>
+        {pokemons &&
+          pokemons.map(pokemon => <li key={pokemon.name}>{pokemon.name}</li>)}
+      </ul>
     </div>
   );
 };
