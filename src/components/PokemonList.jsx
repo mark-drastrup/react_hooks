@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import usePokemonImage from "../hooks/usePokemonImage";
 
 const PokemonList = () => {
   const [pokemons, setPokemons] = useState([]);
